@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../helpers/css/styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../helpers/js/ajaxJS.js"></script>
+  </head>
+  <body>
+    <form method="post" id="student-form">
+      <label for="id">Cedula:</label>
+      <input type="text" id="id" name="id" />
+      <label for="firstName">Nombre:</label>
+      <input type="text" id="firstName" name="firstName" />
+      <label for="lastName">Apellido:</label>
+      <input type="text" id="lastName" name="lastName" />
+      <label for="address">Direccion:</label>
+      <input type="text" id="address" name="address" />
+      <label for="phoneNumber">Telefono:</label>
+      <input type="text" id="phoneNumber" name="phoneNumber" />
+      <button type="submit">Guardar</button>
+      <button type="button" id="update-button">Actualizar</button>
+      <button type="button" id="delete-button">Eliminar</button>
+    </form>
+
+    <table id="students-table">
+      <thead>
+        <tr>
+          <th>Cédula</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Dirección</th>
+          <th>Teléfono</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </body>
+</html>

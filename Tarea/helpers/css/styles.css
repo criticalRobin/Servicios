@@ -1,0 +1,31 @@
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  margin-top: 50px;
+  border-collapse: collapse;
+}
+
+/* Estilos para las celdas de encabezado */
+th {
+  background-color: #f2f2f2;
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Estilos alternos para filas */
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Estilos para las celdas de datos */
+td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Estilos para el hover de las filas */
+tr:hover {
+  background-color: #f5f5f5;
+}
