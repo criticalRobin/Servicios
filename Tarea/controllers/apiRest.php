@@ -16,7 +16,11 @@ switch ($opt) {
         break;
     case 'PUT':
         $studentId = $_GET["id"];
-        Update::update($studentId);
+        $firstName = $_GET["firstName"];
+        $lastName = $_GET["lastName"];
+        $address = $_GET["address"];
+        $phoneNumber = $_GET["phoneNumber"];
+        Update::update($studentId, $firstName, $lastName, $address, $phoneNumber);
         break;
     case 'DELETE':
         $studentId = $_GET["id"];

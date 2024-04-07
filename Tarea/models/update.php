@@ -3,14 +3,14 @@ include_once "connection.php";
 
 class Update
 {
-    public static function update($studentId)
+    public static function update($studentId, $studentFirstName, $studentLastName, $studentAddress, $studentPhoneNumber)
     {
         $conn = Connection::connect();
         $id = $studentId;
-        $firstName = $_POST["firstName"];
-        $lastName = $_POST["lastName"];
-        $address = $_POST["address"];
-        $phoneNumber = $_POST["phoneNumber"];
+        $firstName = $studentFirstName;
+        $lastName = $studentLastName;
+        $address = $studentAddress;
+        $phoneNumber = $studentPhoneNumber;
         $query = "UPDATE estudiante SET nombre = '$firstName', apellido = '$lastName', direccion = '$address', telefono = '$phoneNumber' WHERE cedula = $id";
         $ans = $conn->prepare($query);
         $ans->execute();

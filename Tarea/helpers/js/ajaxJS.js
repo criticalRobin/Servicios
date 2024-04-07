@@ -21,10 +21,26 @@ $(document).ready(function () {
 
   $("#update-button").click(function () {
     let studentId = $("#id").val();
+    let firstName = $("#firstName").val();
+    let lastName = $("#lastName").val();
+    let address = $("#address").val();
+    let phoneNumber = $("#phoneNumber").val();
+
+    console.log("uwu");
 
     $.ajax({
       type: "PUT",
-      url: "../controllers/apiRest.php?id=" + studentId,
+      url:
+        "../controllers/apiRest.php?id=" +
+        studentId +
+        "&firstName=" +
+        firstName +
+        "&lastName=" +
+        lastName +
+        "&address=" +
+        address +
+        "&phoneNumber=" +
+        phoneNumber,
       success: function () {
         updateStudentsTable();
         clearFormFields();
