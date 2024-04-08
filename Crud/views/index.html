@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../helpers/ajax.js"></script>
+  </head>
+  <body>
+    <form method="post" id="person-form">
+      <label for="id">Id</label>
+      <input type="text" id="id" name="id" />
+      <label for="firstName">Nombre</label>
+      <input type="text" id="firstName" name="firstName" />
+      <label for="lastName">Apellido</label>
+      <input type="text" id="lastName" name="lastName" />
+      <button type="submit" id="btn-save">Guardar</button>
+      <button type="button" id="btn-update">Actualizar</button>
+      <button type="button" id="btn-delete">Eliminar</button>
+    </form>
+
+    <input type="text" id="search" name="search" placeholder="Buscar..." />
+
+    <table id="tbl">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>APELLIDO</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <input type="text" id="searcher" name="searcher" placeholder="Buscar..." />
+    <button type="button" id="btn-search">Buscar</button>
+  </body>
+</html>
