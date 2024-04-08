@@ -1,6 +1,10 @@
 $(document).ready(function () {
   updateStudentsTable();
 
+  $("#search-input").on("input", function () {
+    filterTable($(this).val());
+  });
+
   $("#student-form").submit(function (event) {
     event.preventDefault();
 
@@ -25,8 +29,6 @@ $(document).ready(function () {
     let lastName = $("#lastName").val();
     let address = $("#address").val();
     let phoneNumber = $("#phoneNumber").val();
-
-    console.log("uwu");
 
     $.ajax({
       type: "PUT",
@@ -77,6 +79,21 @@ $(document).ready(function () {
     $("#phoneNumber").val(cells.eq(4).text());
   });
 });
+
+function filterTable(query) {
+  query = query.toLowerCase(); // Convertir a minúsculas para comparación sin distinción entre mayúsculas y minúsculas
+
+  $("#students-table tbody tr").each(function () {
+    let rowText = $(this).text().toLowerCase(); // Obtener el texto de la fila en minúsculas
+
+    if (rowText.indexOf(query) === -1) {
+      // Si el texto de la fila no contiene la búsqueda, ocultar la fila
+      $(this).hide();
+    } else {
+      $(this).show(); // Mostrar la fila si coincide con la búsqueda
+    }
+  });
+}
 
 function updateStudentsTable() {
   $.ajax({
