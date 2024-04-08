@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="../helpers/ajax.js"></script>
+  </head>
+  <body>
+    <form method="post" id="add-form">
+      <label for="id">Id:</label>
+      <input type="text" id="id" name="id" />
+      <label for="numOne">Numero:</label>
+      <input type="number" id="numOne" name="numOne" />
+      <label for="numTwo">Numero:</label>
+      <input type="number" id="numTwo" name="numTwo" />
+      <button type="submit" id="bnt-save">Guardar</button>
+      <button type="button" id="btn-delete">Eliminar</button>
+    </form>
+    <input type="text" id="search" name="search" placeholder="Buscar...">
+
+    <table id="tbl">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Numero Uno</th>
+          <th>Numero Dos</th>
+          <th>Respuesta</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </body>
+</html>
