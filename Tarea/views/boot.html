@@ -331,6 +331,7 @@
           var phoneNumber = button.closest("tr").find("td:eq(4)").text();
 
           // Establecer los valores en el formulario de edición
+          $("#editEmployeeModal #editId").val(studentId);
           $("#editEmployeeModal #editFirstName").val(firstName);
           $("#editEmployeeModal #editLastName").val(lastName);
           $("#editEmployeeModal #editAddress").val(address);
@@ -340,7 +341,7 @@
         $("#editStudentForm").submit(function (event) {
           event.preventDefault();
 
-          let studentId = $("#id").val();
+          let studentId = $("#editId").val();
           let firstName = $("#editFirstName").val();
           let lastName = $("#editLastName").val();
           let address = $("#editAddress").val();
@@ -348,17 +349,20 @@
 
           $.ajax({
             type: "PUT",
-            url: "../controllers/apiRest.php",
-            data: {
-              id: studentId,
-              firstName: firstName,
-              lastName: lastName,
-              address: address,
-              phoneNumber: phoneNumber,
-            },
+            url:
+              "../controllers/apiRest.php?id=" +
+              studentId +
+              "&firstName=" +
+              firstName +
+              "&lastName=" +
+              lastName +
+              "&address=" +
+              address +
+              "&phoneNumber=" +
+              phoneNumber,
             success: function () {
               updateStudentsTable();
-              clearFormFields();
+              // clearFormFields();
               $("#editEmployeeModal").modal("hide");
             },
             error: function (xhr, status, error) {
@@ -376,7 +380,7 @@
           <div class="table-title">
             <div class="row">
               <div class="col-sm-6">
-                <h2>Manage <b>Employees</b></h2>
+                <h2>Control <b>Estudiantes</b></h2>
               </div>
               <div class="col-sm-6">
                 <a
@@ -384,7 +388,7 @@
                   class="btn btn-success"
                   data-toggle="modal"
                   ><i class="material-icons">&#xE147;</i>
-                  <span>Add New Employee</span></a
+                  <span>Nuevo Estudiante</span></a
                 >
               </div>
             </div>
@@ -427,7 +431,7 @@
         <div class="modal-content">
           <form id="student-form">
             <div class="modal-header">
-              <h4 class="modal-title">Add Employee</h4>
+              <h4 class="modal-title">Añadir Estudiante</h4>
               <button
                 type="button"
                 class="close"
@@ -526,7 +530,7 @@
         <div class="modal-content">
           <form id="editStudentForm">
             <div class="modal-header">
-              <h4 class="modal-title">Edit Employee</h4>
+              <h4 class="modal-title">Editar Estudiante</h4>
               <button
                 type="button"
                 class="close"
@@ -537,6 +541,17 @@
               </button>
             </div>
             <div class="modal-body">
+              <div class="form-group">
+                <label for="editId">Id</label>
+                <input
+                  type="text"
+                  id="editId"
+                  name="editId"
+                  class="form-control"
+                  required
+                  disabled
+                />
+              </div>
               <div class="form-group">
                 <label for="editFirstName">Name</label>
                 <input
@@ -588,8 +603,9 @@
                 type="submit"
                 id="update-button"
                 class="btn btn-info"
-                value="Save"
+                value="Guardar"
               />
+              <!-- <button id="update-button">Guardar</button> -->
             </div>
           </form>
         </div>
@@ -647,36 +663,36 @@
 
           data.forEach(function (student) {
             $("#students-table tbody").append(`
-              <tr>
-                  <td>${student.cedula}</td>
-                  <td>${student.nombre}</td>
-                  <td>${student.apellido}</td>
-                  <td>${student.direccion}</td>
-                  <td>${student.telefono}</td>
-                  <td>
-                  <a href="#editEmployeeModal" class="edit" data-toggle="modal"
-                    ><i
-                      class="material-icons"
-                      data-toggle="tooltip"
-                      title="Edit"
-                      >&#xE254;</i
-                    ></a
-                  >
-                  <a
-                    href="#deleteEmployeeModal"
-                    class="delete"
-                    data-toggle="modal"
-                    data-id="${student.cedula}"
-                    ><i
-                      class="material-icons"
-                      data-toggle="tooltip"
-                      title="Delete"
-                      >&#xE872;</i
-                    ></a
-                  >
-                </td>
-              </tr>
-          `);
+                <tr>
+                    <td>${student.cedula}</td>
+                    <td>${student.nombre}</td>
+                    <td>${student.apellido}</td>
+                    <td>${student.direccion}</td>
+                    <td>${student.telefono}</td>
+                    <td>
+                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"
+                      ><i
+                        class="material-icons"
+                        data-toggle="tooltip"
+                        title="Edit"
+                        >&#xE254;</i
+                      ></a
+                    >
+                    <a
+                      href="#deleteEmployeeModal"
+                      class="delete"
+                      data-toggle="modal"
+                      data-id="${student.cedula}"
+                      ><i
+                        class="material-icons"
+                        data-toggle="tooltip"
+                        title="Delete"
+                        >&#xE872;</i
+                      ></a
+                    >
+                  </td>
+                </tr>
+            `);
           });
         },
         error: function (xhr, status, error) {
