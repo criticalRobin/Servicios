@@ -10,10 +10,10 @@ $opt = $_SERVER["REQUEST_METHOD"];
 
 switch ($opt) {
     case "GET":
-        if (isset($_GET["id"])) {
-            GetOne::getOne();
-        } elseif (isset($_GET["level"]) && isset($_GET["parallel"])) {
+        if (isset($_GET["level"]) && isset($_GET["parallel"])) {
             GetFiltered::getFiltered();
+        } elseif (isset($_GET["id"])) {
+            GetOne::getOne();
         } else {
             GetData::getData();
         }
