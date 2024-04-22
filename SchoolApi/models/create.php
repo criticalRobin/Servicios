@@ -10,7 +10,7 @@ class Create
         $lastName = $_POST["lastName"];
         $courseId = $_POST["courseId"];
 
-        $query = "INSERT INTO students (id, 'name', lastName, courseId) VALUES ($id, '$name', '$lastName', $courseId)";
+        $query = "INSERT INTO students VALUES('$id', '$name', '$lastName', '$courseId')";
         $ans = $connection->prepare($query);
         $ans->execute();
 

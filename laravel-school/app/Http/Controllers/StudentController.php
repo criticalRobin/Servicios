@@ -25,7 +25,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('students.create');
     }
 
     /**
@@ -33,7 +33,14 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $response = Http::asForm()->post(static::$url, [
+            'id' => $request->input('id'),
+            'name' => $request->input('name'),
+            'lastName' => $request->input('lastName'),
+            'courseId' => $request->input('courseId'),
+        ]);
+
+        return redirect('/students');
     }
 
     /**
@@ -41,7 +48,11 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $response = Http::get(static::$url);
+        $students = $response->json();
+        $student = collect($students)->firstWhere('id', $id);
+
+        return view('students.show', compact('student'));
     }
 
     /**
@@ -49,7 +60,11 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $response = Http::get(static::$url);
+        $students = $response->json();
+        $student = collect($students)->firstWhere('id', $id);
+
+        return view('students.edit', compact('student'));
     }
 
     /**
@@ -57,7 +72,14 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = [
+            'name' => $request->input('name'),
+            'lastName' => $request->input('lastName'),
+            'courseId' => $request->input('courseId'),
+        ];
+        $response = Http::put(static::$url . "?id=" . $id, $data);
+
+        return redirect('/students');
     }
 
     /**
@@ -65,6 +87,8 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $response = Http::delete(static::$url . "?id=" . $id);
+
+        return redirect('/students');
     }
 }
