@@ -8,6 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/students', [StudentController::class, 'index']);
+Route::get('/students/filtered', [StudentController::class, 'indexFiltered']);
 Route::get('/students/{id}', [StudentController::class, 'show']);
 Route::post('/students', [StudentController::class, 'store']);
 Route::get('/students/create', [StudentController::class, 'create']);

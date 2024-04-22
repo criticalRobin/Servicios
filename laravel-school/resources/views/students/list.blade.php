@@ -3,6 +3,15 @@
 @section('content')
 <h1>Students List</h1>
 <div>
+    <form action="{{url('/students/filtered')}}">
+        <label for="level">Filtrar por Nivel de Curso:</label>
+        <input type="text" id="level" name="level" placeholder="Levele">
+        <label for="parallel">Filtrar por Paralelo de Curso:</label>
+        <input type="text" id="parallel" name="parallel" placeholder="Levele">
+        <button type="submit">Filtrar</button>
+    </form>
+</div>
+<div>
     <form id="studentForm">
         <label for="id">ID del Estudiante:</label>
         <input type="text" id="id" name="id" placeholder="Ingresa el ID del estudiante">

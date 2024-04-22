@@ -20,6 +20,13 @@ class StudentController extends Controller
         return view('students.list', compact('students'));
     }
 
+    public function indexFiltered(Request $request){
+        $response = Http::get(static::$url . "?level=" . $request->input('level') . "&parallel=" . $request->input('parallel'));
+        $students = $response->json();
+
+        return view('students.filtered', compact('students'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
