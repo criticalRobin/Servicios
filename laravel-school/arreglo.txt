@@ -1,0 +1,3 @@
+php.ini
+buscar esta linea: ;extension=zip
+quitarle el punto y coma
