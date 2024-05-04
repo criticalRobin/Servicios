@@ -4,6 +4,8 @@ include_once ('../models/add.php');
 include_once ('../models/delete.php');
 include_once ('../models/update.php');
 
+header('Content-Type: application/json');
+
 $opc = $_SERVER["REQUEST_METHOD"];
 switch ($opc) {
     case 'GET':
