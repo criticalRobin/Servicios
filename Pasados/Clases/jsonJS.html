@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let string = "Hola loro bebé";
+      let number = 4;
+      let boolean = true;
+      let arr = ["lunes", "martes", "miercoles", "jueves", "viernes"];
+      let object = {
+        nombre: "Matite",
+        edad: 20,
+        ciudad: "Pillaro",
+      };
+
+      let json = {
+        nombre: "Matias",
+        apellido: "Tite",
+        edad: 20,
+        ciudad: "Pillaro",
+        estudios: {
+          primaria: "Escuela Fiscal",
+          secundaria: "Colegio Nacional",
+          universidad: "Universidad de las Fuerzas Armadas",
+        },
+      };
+
+      //   console.log(
+      //     string + " me gustaria tenerte en " + number + " el día " + arr[2]
+      //   );
+      //   console.log(`Hola soy ${object.nombre} y tengo ${object.edad} años`);
+      //   console.log(json);
+
+      let newString = { nombre: "Matias" };
+      let toJson = JSON.stringify(json);
+      console.log(toJson);
+    </script>
+  </body>
+</html>

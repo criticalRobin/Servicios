@@ -1,0 +1,13 @@
+{
+    "nombre": "Juan",
+    "apellido": "Perez",
+    "edad": 30,
+    "email": "elvergalarga@gmail.com",
+    "estudios": [
+        {
+            "primaria": "CEBI",
+            "secundaria": "CEBI",
+            "universidad": "UTA"
+        }
+    ]
+}
